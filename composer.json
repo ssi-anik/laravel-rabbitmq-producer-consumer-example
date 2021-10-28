@@ -1,7 +1,13 @@
 {
     "name": "laravel-zero/laravel-zero",
     "description": "The Laravel Zero Framework.",
-    "keywords": ["framework", "laravel", "laravel zero", "console", "cli"],
+    "keywords": [
+        "framework",
+        "laravel",
+        "laravel zero",
+        "console",
+        "cli"
+    ],
     "homepage": "https://laravel-zero.com",
     "type": "project",
     "license": "MIT",
@@ -17,7 +23,8 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "laravel-zero/framework": "^8.8"
+        "laravel-zero/framework": "^8.8",
+        "anik/amqp": "v2.x-dev|^2.0"
     },
     "require-dev": {
         "mockery/mockery": "^1.4.3",
@@ -40,5 +47,7 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "bin": ["application"]
+    "bin": [
+        "amqp"
+    ]
 }
