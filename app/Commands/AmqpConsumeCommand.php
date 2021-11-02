@@ -26,12 +26,9 @@ class AmqpConsumeCommand extends BaseAmqpCommand
                             {--i : Input values with interaction}
                             {--ct= : Consumer tag}
                             {--h : Include header}
-                            {--np : Transient/ Non-persistent message}
                             {--ack : Acknowledge received message}
                             {--reject : Reject received message}
                             {--requeue : Requeue received message}
-                            {--any : Header exchange x-match: any}
-                            {--all : Header exchange x-match: all}
                             ';
 
     protected $description = 'Consume message from RabbitMQ';
@@ -41,7 +38,7 @@ class AmqpConsumeCommand extends BaseAmqpCommand
         return '';
     }
 
-    protected function getRoutingKey(): string
+    protected function getBindingKey(): string
     {
         if ($this->isInteractive()) {
             $answer = $this->keepAskingQuestion('What is the binding key?', true);
@@ -130,7 +127,7 @@ class AmqpConsumeCommand extends BaseAmqpCommand
     protected function prepare(): array
     {
         return [
-            'binding_key' => $this->getRoutingKey(),
+            'binding_key' => $this->getBindingKey(),
             'exchange' => $this->getExchange(),
             'queue' => $this->getQueue(),
             'consumer_tag' => $this->getConsumerTag(),

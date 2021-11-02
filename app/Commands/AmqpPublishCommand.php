@@ -21,7 +21,7 @@ class AmqpPublishCommand extends BaseAmqpCommand
                             {--dde : Do not declare exchange}
                             {--i : Input values with interaction}
                             {--h : Include header when passing message}
-                            {--np : Transient/ Non-persistent message}
+                            {--np : Transient / Non-persistent message}
                             ';
 
     protected $description = 'Publish message to RabbitMQ';
