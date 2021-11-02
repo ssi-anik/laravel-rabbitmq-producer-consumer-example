@@ -47,7 +47,7 @@ abstract class BaseAmqpCommand extends Command
             return $this->keepAskingQuestion('What is the exchange name?');
         }
 
-        if ($name = $this->option('exchange')) {
+        if (!is_null($name = $this->option('exchange'))) {
             return $name;
         }
 
@@ -63,7 +63,7 @@ abstract class BaseAmqpCommand extends Command
             [
                 'name' => $name,
                 'type' => $type,
-                'declare' => !$this->option('dd'),
+                'declare' => !$this->option('dde'),
             ]
         );
     }
