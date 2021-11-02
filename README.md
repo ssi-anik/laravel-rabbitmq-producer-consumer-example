@@ -101,6 +101,8 @@ Options:
 - `--reject` optional switch. If provided, will reject messages upon receive. **PRIORITY 2**
 - `--requeue` optional switch. If provided, will nack messages upon receive. **PRIORITY 3**
 
----
+## Note
 
-It's possible to try various combinations with the above commands. Try playing with them.
+- If none of the `--ack`, `--reject`, `--requeue` switches are used, as the consumer creates connection with the
+  acknowledgement required, messages will persist.
+- It's possible to try various combinations with the above commands. Try playing with them.
