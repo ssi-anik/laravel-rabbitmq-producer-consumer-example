@@ -1,36 +1,106 @@
-<p align="center">
-    <img title="Laravel Zero" height="100" src="https://raw.githubusercontent.com/laravel-zero/docs/master/images/logo/laravel-zero-readme.png" />
-</p>
+Laravel Rabbitmq Producer Consumer Example
+===
 
-<p align="center">
-  <a href="https://github.com/laravel-zero/framework/actions"><img src="https://img.shields.io/github/workflow/status/laravel-zero/framework/Tests.svg" alt="Build Status"></img></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/dt/laravel-zero/framework.svg" alt="Total Downloads"></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/v/laravel-zero/framework.svg?label=stable" alt="Latest Stable Version"></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/l/laravel-zero/framework.svg" alt="License"></a>
-</p>
+The application is built with [Laravel zero](https://github.com/laravel-zero/laravel-zero).
 
-<h4> <center>This is a <bold>community project</bold> and not an official Laravel one </center></h4>
+This repository holds examples for:
 
-Laravel Zero was created by, and is maintained by [Nuno Maduro](https://github.com/nunomaduro), and is a micro-framework that provides an elegant starting point for your console application. It is an **unofficial** and customized version of Laravel optimized for building command-line applications.
+- [anik/amqp](https://github.com/ssi-anik/amqp)
+- [anik/laravel-amqp](https://github.com/ssi-anik/laravel-amqp)
 
-- Built on top of the [Laravel](https://laravel.com) components.
-- Optional installation of Laravel [Eloquent](https://laravel-zero.com/docs/database/), Laravel [Logging](https://laravel-zero.com/docs/logging/) and many others.
-- Supports interactive [menus](https://laravel-zero.com/docs/build-interactive-menus/) and [desktop notifications](https://laravel-zero.com/docs/send-desktop-notifications/) on Linux, Windows & MacOS.
-- Ships with a [Scheduler](https://laravel-zero.com/docs/task-scheduling/) and  a [Standalone Compiler](https://laravel-zero.com/docs/build-a-standalone-application/).
-- Integration with [Collision](https://github.com/nunomaduro/collision) - Beautiful error reporting
+## Installation
 
-------
+- Clone the repository.
+- Run `composer install` to install project dependencies.
+- Copy `.env.example` to `.env`.
+- Populate your credentials.
 
-## Documentation
+If you are not familiar with `.env` file, `.env` holds credentials for the project. The environments values are referred
+in the code. For this project, it should be inside the `config/amqp.php` file.
 
-For full documentation, visit [laravel-zero.com](https://laravel-zero.com/).
+## Publish to RabbitMQ
 
-## Support the development
-**Do you like this project? Support it by donating**
+`php amqp amqp:publish` or `./amqp amqp:publish` command can be used to publish messages to RabbitMQ.
 
-- PayPal: [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66BYDWAT92N6L)
-- Patreon: [Donate](https://www.patreon.com/nunomaduro)
+Class that is responsible for the command is in `app/Commands/AmqpPublishCommand.php`. Go through the file if you need
+to dig in.
 
-## License
+The command has the following options available. `php amqp amqp:publish --help` should show you list of help.
 
-Laravel Zero is an open-source software licensed under the MIT license.
+```text
+Description:
+  Publish message to RabbitMQ
+
+Usage:
+  amqp:publish [options]
+
+Options:
+  --msg                  Message you want to pass
+  --exchange             Exchange to publish the message
+  --type                 Exchange Type
+  --rk                   Routing key
+  --dde                  Do not declare exchange
+  --i                    Input values with interaction
+  --h                    Include header when passing message
+  --np                   Transient / Non-persistent message
+```
+
+- `--msg` optional. If not provided, generates random json string.
+- `--exchange` optional. Name of the exchange. Default `example.direct`.
+- `--type` optional. Type of the exchange. Default `direct`.
+- `--rk` optional. Routing key. Default `''` (empty string).
+- `--dde` optional switch. Do not declare exchange. Default `false` meaning tries to declare exchange.
+- `--i` optional switch. Default `false`. If used, provide values using interaction.
+- `--h` optional switch. If you want to use `headers` type of exchange, you must have to provide headers using this
+  flag.
+- `--np` optional switch. By default, all the messages to the exchange is **PERSISTENT**. If you want to send **
+  Non-Persistent** message, you can use this flag.
+
+## Consume from RabbitMQ
+
+`php amqp amqp:consume` or `./amqp amqp:consume` command can be used to retrieve messages from RabbitMQ.
+
+Class that is responsible for the command is in `app/Commands/AmqpConsumeCommand.php`. Go through the file if you need
+to dig in.
+
+The command has the following options available. `php amqp amqp:consume --help` should show you list of help.
+
+```text
+Description:
+  Consume message from RabbitMQ
+
+Usage:
+  amqp:consume [options]
+
+Options:
+  --exchange             Exchange to listen
+  --type                 Exchange Type
+  --queue                Queue to listen
+  --bk                   Binding key
+  --dde                  Do not declare exchange
+  --ddq                  Do not declare queue
+  --i                    Input values with interaction
+  --ct                   Consumer tag
+  --h                    Include header
+  --ack                  Acknowledge received message
+  --reject               Reject received message
+  --requeue              Requeue received message
+```
+
+- `--exchange` optional. Name of the exchange. Default `example.direct`.
+- `--type` optional. Type of the exchange. Default `direct`.
+- `--queue` optional. Name of the queue. Default `example.{type}.queue`.
+- `--bk` optional. Binding key. Default `''` (empty string).
+- `--dde` optional switch. Do not declare exchange. Default `false` meaning tries to declare exchange.
+- `--ddq` optional switch. Do not declare queue. Default `false` meaning tries to declare queue.
+- `--i` optional switch. Default `false`. If used, provide values using interaction.
+- `--ct` optional. Consumer tag. Default `amqp.consumer.tag`.
+- `--h` optional switch. If you want to use `headers` type of exchange, you must have to provide headers using this
+  flag.
+- `--ack` optional switch. If provided, will acknowledge messages upon receive. **PRIORITY 1**
+- `--reject` optional switch. If provided, will reject messages upon receive. **PRIORITY 2**
+- `--requeue` optional switch. If provided, will nack messages upon receive. **PRIORITY 3**
+
+---
+
+It's possible to try various combinations with the above commands. Try playing with them.
