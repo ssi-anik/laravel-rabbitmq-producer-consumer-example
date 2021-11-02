@@ -18,7 +18,7 @@ class AmqpPublishCommand extends BaseAmqpCommand
                             {--exchange= : Exchange to publish the message}
                             {--type= : Exchange Type}
                             {--rk= : Routing key}
-                            {--dd : Don\'t declare exchange}
+                            {--dde : Do not declare exchange}
                             {--i : Input values with interaction}
                             {--h : Include header when passing message}
                             {--np : Transient/ Non-persistent message}
@@ -59,7 +59,7 @@ class AmqpPublishCommand extends BaseAmqpCommand
         return json_encode(
             [
                 'user' => Factory::create()->firstName,
-                'action' => rand(1, 100) % 2 === 0 ? 'login' : 'logout',
+                'event' => rand(1, 100) % 2 === 0 ? 'login' : 'logout',
                 'when' => now()->toDateTimeString(),
             ]
         );
