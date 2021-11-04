@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c6d3b77238fd3c7ff2edf97db1337224",
+    "content-hash": "be08691fd03e2162563299575a72d68e",
     "packages": [
         {
             "name": "anik/amqp",
-            "version": "v2.x-dev",
+            "version": "v2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ssi-anik/amqp.git",
-                "reference": "469963b25c8667b3ec25b8a7e1a8581e6521d4e3"
+                "reference": "87b240bc07c2d5fe6781893407276fd07f1450c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ssi-anik/amqp/zipball/469963b25c8667b3ec25b8a7e1a8581e6521d4e3",
-                "reference": "469963b25c8667b3ec25b8a7e1a8581e6521d4e3",
+                "url": "https://api.github.com/repos/ssi-anik/amqp/zipball/87b240bc07c2d5fe6781893407276fd07f1450c8",
+                "reference": "87b240bc07c2d5fe6781893407276fd07f1450c8",
                 "shasum": ""
             },
             "require": {
@@ -46,9 +46,9 @@
             "description": "php-amqplib wrapper that eases the consumption of RabbitMQ. A painless way of using RabbitMQ",
             "support": {
                 "issues": "https://github.com/ssi-anik/amqp/issues",
-                "source": "https://github.com/ssi-anik/amqp/tree/v2"
+                "source": "https://github.com/ssi-anik/amqp/tree/v2.0"
             },
-            "time": "2021-11-02T07:03:38+00:00"
+            "time": "2021-11-03T02:40:49+00:00"
         },
         {
             "name": "brick/math",
@@ -514,7 +514,7 @@
         },
         {
             "name": "illuminate/bus",
-            "version": "v8.68.1",
+            "version": "v8.69.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
@@ -567,7 +567,7 @@
         },
         {
             "name": "illuminate/cache",
-            "version": "v8.68.1",
+            "version": "v8.69.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/cache.git",
@@ -627,7 +627,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v8.68.1",
+            "version": "v8.69.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -681,7 +681,7 @@
         },
         {
             "name": "illuminate/config",
-            "version": "v8.68.1",
+            "version": "v8.69.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/config.git",
@@ -729,7 +729,7 @@
         },
         {
             "name": "illuminate/console",
-            "version": "v8.68.1",
+            "version": "v8.69.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/console.git",
@@ -789,7 +789,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v8.68.1",
+            "version": "v8.69.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -840,7 +840,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v8.68.1",
+            "version": "v8.69.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -888,7 +888,7 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v8.68.1",
+            "version": "v8.69.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -943,7 +943,7 @@
         },
         {
             "name": "illuminate/filesystem",
-            "version": "v8.68.1",
+            "version": "v8.69.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/filesystem.git",
@@ -1005,7 +1005,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v8.68.1",
+            "version": "v8.69.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -1051,7 +1051,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v8.68.1",
+            "version": "v8.69.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -1099,16 +1099,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v8.68.1",
+            "version": "v8.69.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "f0a1ffbfd93a24758f39cc76821ce5a408e20b53"
+                "reference": "a8851b7001530d3c11626a81449ed9b63dd10db7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/f0a1ffbfd93a24758f39cc76821ce5a408e20b53",
-                "reference": "f0a1ffbfd93a24758f39cc76821ce5a408e20b53",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/a8851b7001530d3c11626a81449ed9b63dd10db7",
+                "reference": "a8851b7001530d3c11626a81449ed9b63dd10db7",
                 "shasum": ""
             },
             "require": {
@@ -1163,20 +1163,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-10-24T14:32:18+00:00"
+            "time": "2021-10-29T13:34:03+00:00"
         },
         {
             "name": "illuminate/testing",
-            "version": "v8.68.1",
+            "version": "v8.69.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/testing.git",
-                "reference": "26913208bf7d95f31afdb74bd170ae667d80c625"
+                "reference": "35e704341bf086982d22ad62c6321dfaf1247643"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/testing/zipball/26913208bf7d95f31afdb74bd170ae667d80c625",
-                "reference": "26913208bf7d95f31afdb74bd170ae667d80c625",
+                "url": "https://api.github.com/repos/illuminate/testing/zipball/35e704341bf086982d22ad62c6321dfaf1247643",
+                "reference": "35e704341bf086982d22ad62c6321dfaf1247643",
                 "shasum": ""
             },
             "require": {
@@ -1221,7 +1221,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-10-26T20:15:57+00:00"
+            "time": "2021-11-02T13:42:55+00:00"
         },
         {
             "name": "jolicode/jolinotif",
@@ -1578,16 +1578,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.53.1",
+            "version": "2.54.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "f4655858a784988f880c1b8c7feabbf02dfdf045"
+                "reference": "eed83939f1aed3eee517d03a33f5ec587ac529b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/f4655858a784988f880c1b8c7feabbf02dfdf045",
-                "reference": "f4655858a784988f880c1b8c7feabbf02dfdf045",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/eed83939f1aed3eee517d03a33f5ec587ac529b5",
+                "reference": "eed83939f1aed3eee517d03a33f5ec587ac529b5",
                 "shasum": ""
             },
             "require": {
@@ -1598,6 +1598,7 @@
                 "symfony/translation": "^3.4 || ^4.0 || ^5.0"
             },
             "require-dev": {
+                "doctrine/dbal": "^2.0 || ^3.0",
                 "doctrine/orm": "^2.7",
                 "friendsofphp/php-cs-fixer": "^3.0",
                 "kylekatarnls/multi-tester": "^2.0",
@@ -1668,7 +1669,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-06T09:29:23+00:00"
+            "time": "2021-11-01T21:22:20+00:00"
         },
         {
             "name": "nunomaduro/collision",
@@ -4462,16 +4463,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.13.0",
+            "version": "v4.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "50953a2691a922aa1769461637869a0a2faa3f53"
+                "reference": "63a79e8daa781cac14e5195e63ed8ae231dd10fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/50953a2691a922aa1769461637869a0a2faa3f53",
-                "reference": "50953a2691a922aa1769461637869a0a2faa3f53",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/63a79e8daa781cac14e5195e63ed8ae231dd10fd",
+                "reference": "63a79e8daa781cac14e5195e63ed8ae231dd10fd",
                 "shasum": ""
             },
             "require": {
@@ -4512,9 +4513,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v4.13.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v4.13.1"
             },
-            "time": "2021-09-20T12:20:58+00:00"
+            "time": "2021-11-03T20:52:16+00:00"
         },
         {
             "name": "pestphp/pest",
@@ -6473,9 +6474,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "anik/amqp": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
