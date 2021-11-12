@@ -56,6 +56,13 @@ Options:
 - `--np` optional switch. By default, all the messages to the exchange is **PERSISTENT**. If you want to send **
   Non-Persistent** message, you can use this flag.
 
+## Publish to RabbitMQ with anik/laravel-amqp
+
+`php amqp amqp:publish:laravel` or `./amqp amqp:publish:laravel` command can be used to publish messages to RabbitMQ
+using [anik/laravel-amqp](https://packagist.org/packages/anik/laravel-amqp).
+
+Rest of the options remains the same as above
+
 ## Consume from RabbitMQ
 
 `php amqp amqp:consume` or `./amqp amqp:consume` command can be used to retrieve messages from RabbitMQ.
@@ -100,6 +107,13 @@ Options:
 - `--ack` optional switch. If provided, will acknowledge messages upon receive. **PRIORITY 1**
 - `--reject` optional switch. If provided, will reject messages upon receive. **PRIORITY 2**
 - `--requeue` optional switch. If provided, will nack messages upon receive. **PRIORITY 3**
+
+## Consume from RabbitMQ with anik/laravel-amqp
+
+`php amqp amqp:consume:laravel` or `./amqp amqp:consume:laravel` command can be used to retrieve messages from RabbitMQ
+using [anik/laravel-amqp](https://packagist.org/packages/anik/laravel-amqp).
+
+Rest of the options remains the same as above
 
 ## Note
 
