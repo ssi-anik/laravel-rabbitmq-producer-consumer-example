@@ -56,12 +56,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ssi-anik/laravel-amqp.git",
-                "reference": "7ba6e66149514c1b0024a0e01ea7c42dfbb37891"
+                "reference": "65a1839292569ef58e49654a2b529d3192d49f96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ssi-anik/laravel-amqp/zipball/7ba6e66149514c1b0024a0e01ea7c42dfbb37891",
-                "reference": "7ba6e66149514c1b0024a0e01ea7c42dfbb37891",
+                "url": "https://api.github.com/repos/ssi-anik/laravel-amqp/zipball/65a1839292569ef58e49654a2b529d3192d49f96",
+                "reference": "65a1839292569ef58e49654a2b529d3192d49f96",
                 "shasum": ""
             },
             "require": {
@@ -105,7 +105,7 @@
                 "issues": "https://github.com/ssi-anik/laravel-amqp/issues",
                 "source": "https://github.com/ssi-anik/laravel-amqp/tree/master"
             },
-            "time": "2021-11-12T03:21:55+00:00"
+            "time": "2021-11-12T04:09:17+00:00"
         },
         {
             "name": "brick/math",
