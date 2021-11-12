@@ -14,9 +14,9 @@ use PhpAmqpLib\Wire\AMQPTable;
 
 class AmqpConsumeCommand extends BaseAmqpCommand
 {
-    private const ACK = 'ack';
-    private const REJECT = 'reject';
-    private const REQUEUE = 'requeue';
+    protected const ACK = 'ack';
+    protected const REJECT = 'reject';
+    protected const REQUEUE = 'requeue';
 
     protected $signature = 'amqp:consume
                             {--exchange= : Exchange to listen}
