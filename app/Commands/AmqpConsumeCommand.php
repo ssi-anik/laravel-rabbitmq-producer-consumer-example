@@ -4,6 +4,8 @@ namespace App\Commands;
 
 use Anik\Amqp\ConsumableMessage;
 use Anik\Amqp\Consumer;
+use Anik\Amqp\Exchanges\Exchange;
+use Anik\Amqp\Qos\Qos;
 use Anik\Amqp\Queues\Queue;
 use PhpAmqpLib\Channel\AbstractChannel;
 use PhpAmqpLib\Connection\AbstractConnection;
@@ -31,7 +33,7 @@ class AmqpConsumeCommand extends BaseAmqpCommand
                             {--requeue : Requeue received message}
                             ';
 
-    protected $description = 'Consume message from RabbitMQ';
+    protected $description = 'Consume message from RabbitMQ using anik/amqp';
 
     final protected function getDefaultBindingKey(): string
     {
@@ -145,6 +147,44 @@ class AmqpConsumeCommand extends BaseAmqpCommand
         return new Consumer($connection ?? $this->getAmqpConnection(), $channel, $options);
     }
 
+    protected function getHandler(string $action): callable
+    {
+        return function (ConsumableMessage $message, AMQPMessage $original) use ($action) {
+            $this->output->text(
+                sprintf('[%s][Message]: %s', now()->toDateTimeString(), $message->getMessageBody())
+            );
+
+            if ($action === self::REJECT) {
+                $message->reject();
+            } elseif ($action === self::REQUEUE) {
+                $message->nack();
+            } elseif ($action === self::ACK) {
+                $message->ack();
+            }
+        };
+    }
+
+    protected function consume(
+        string $bindingKey,
+        string $action,
+        string $consumerTag,
+        Exchange $exchange,
+        Queue $queue,
+        ?Qos $qos = null,
+        array $headers = []
+    ) {
+        $consumable = new ConsumableMessage($this->getHandler($action));
+
+        $this->getConsumer(null, null, ['tag' => $consumerTag])->consume(
+            $consumable,
+            $bindingKey,
+            $exchange,
+            $queue,
+            $qos,
+            ['bind' => ['arguments' => $headers ? new AMQPTable($headers) : []]]
+        );
+    }
+
     public function handle()
     {
         [
@@ -185,29 +225,6 @@ class AmqpConsumeCommand extends BaseAmqpCommand
             [$table]
         );
 
-        $consumable = new ConsumableMessage(
-            function (ConsumableMessage $message, AMQPMessage $original) use ($action) {
-                $this->output->text(
-                    sprintf('[%s][Message]: %s', now()->toDateTimeString(), $message->getMessageBody())
-                );
-
-                if ($action === self::REJECT) {
-                    $message->reject();
-                } elseif ($action === self::REQUEUE) {
-                    $message->nack();
-                } elseif ($action === self::ACK) {
-                    $message->ack();
-                }
-            }
-        );
-
-        $this->getConsumer(null, null, ['tag' => $consumerTag])->consume(
-            $consumable,
-            $bindingKey,
-            $exchange,
-            $queue,
-            $qos,
-            ['bind' => ['arguments' => $headers ? new AMQPTable($headers) : []]]
-        );
+        $this->consume($bindingKey, $action, $consumerTag, $exchange, $queue, $qos, $headers);
     }
 }
