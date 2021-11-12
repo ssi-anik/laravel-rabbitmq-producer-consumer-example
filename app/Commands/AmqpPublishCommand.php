@@ -25,7 +25,7 @@ class AmqpPublishCommand extends BaseAmqpCommand
                             {--np : Transient / Non-persistent message}
                             ';
 
-    protected $description = 'Publish message to RabbitMQ using anik/aqmp';
+    protected $description = 'Publish message to RabbitMQ using anik/amqp';
 
     protected function getMessageProperties(): array
     {

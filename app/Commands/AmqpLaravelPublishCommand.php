@@ -27,7 +27,7 @@ class AmqpLaravelPublishCommand extends AmqpPublishCommand
         ?Exchange $exchange = null,
         array $options = []
     ): bool {
-        return Amqp::connection('new')->publish(
+        return Amqp::/*connection('new')->*/ publish(
             $message,
             $routingKey,
             $exchange,
