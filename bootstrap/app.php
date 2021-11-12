@@ -11,6 +11,8 @@
 |
 */
 
+use Anik\Laravel\Amqp\Providers\AmqpServiceProvider;
+
 $app = new LaravelZero\Framework\Application(
     dirname(__DIR__)
 );
@@ -35,6 +37,8 @@ $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     Illuminate\Foundation\Exceptions\Handler::class
 );
+
+$app->register(AmqpServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

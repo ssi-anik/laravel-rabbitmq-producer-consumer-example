@@ -24,6 +24,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "anik/amqp": "^2.0",
+        "anik/laravel-amqp": "dev-master",
         "fakerphp/faker": "^1.16",
         "laravel-zero/framework": "^8.8"
     },

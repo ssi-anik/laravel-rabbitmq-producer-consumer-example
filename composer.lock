@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "be08691fd03e2162563299575a72d68e",
+    "content-hash": "26d33ee551b1ea445bc0a3e63f7c78b2",
     "packages": [
         {
             "name": "anik/amqp",
@@ -49,6 +49,63 @@
                 "source": "https://github.com/ssi-anik/amqp/tree/v2.0"
             },
             "time": "2021-11-03T02:40:49+00:00"
+        },
+        {
+            "name": "anik/laravel-amqp",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ssi-anik/laravel-amqp.git",
+                "reference": "7ba6e66149514c1b0024a0e01ea7c42dfbb37891"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ssi-anik/laravel-amqp/zipball/7ba6e66149514c1b0024a0e01ea7c42dfbb37891",
+                "reference": "7ba6e66149514c1b0024a0e01ea7c42dfbb37891",
+                "shasum": ""
+            },
+            "require": {
+                "anik/amqp": "^2.0",
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": "^7.2|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Anik\\Laravel\\Amqp\\Providers\\AmqpServiceProvider"
+                    ],
+                    "aliases": {
+                        "Amqp": "Anik\\Laravel\\Amqp\\Facades\\Amqp"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Anik\\Laravel\\Amqp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Syed Sirajul Islam Anik",
+                    "email": "sirajul.islam.anik@gmail.com"
+                }
+            ],
+            "description": "anik/amqp wrapper for Laravel-ish frameworks",
+            "support": {
+                "issues": "https://github.com/ssi-anik/laravel-amqp/issues",
+                "source": "https://github.com/ssi-anik/laravel-amqp/tree/master"
+            },
+            "time": "2021-11-12T03:21:55+00:00"
         },
         {
             "name": "brick/math",
@@ -6474,7 +6531,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "anik/laravel-amqp": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
