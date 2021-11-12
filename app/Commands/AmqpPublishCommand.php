@@ -2,6 +2,7 @@
 
 namespace App\Commands;
 
+use Anik\Amqp\Exchanges\Exchange;
 use Anik\Amqp\Producer;
 use Anik\Amqp\Producible;
 use Anik\Amqp\ProducibleMessage;
@@ -24,7 +25,7 @@ class AmqpPublishCommand extends BaseAmqpCommand
                             {--np : Transient / Non-persistent message}
                             ';
 
-    protected $description = 'Publish message to RabbitMQ';
+    protected $description = 'Publish message to RabbitMQ using anik/aqmp';
 
     protected function getMessageProperties(): array
     {
@@ -110,6 +111,15 @@ class AmqpPublishCommand extends BaseAmqpCommand
         ];
     }
 
+    protected function publishMessageToRabbitMQ(
+        Producible $message,
+        string $routingKey = '',
+        ?Exchange $exchange = null,
+        array $options = []
+    ): bool {
+        return $this->getProducer()->publish($message, $routingKey, $exchange, $options);
+    }
+
     public function handle()
     {
         [
@@ -118,8 +128,8 @@ class AmqpPublishCommand extends BaseAmqpCommand
             'exchange' => $exchange,
             'properties' => $properties,
         ] = $this->prepare();
-        $producer = $this->getProducer();
-        $producer->publish($message, $routingKey, $exchange);
+
+        $this->publishMessageToRabbitMQ($message, $routingKey, $exchange);
 
         $headers = ($properties['application_headers'] ?? new AMQPTable([]))->getNativeData();
 

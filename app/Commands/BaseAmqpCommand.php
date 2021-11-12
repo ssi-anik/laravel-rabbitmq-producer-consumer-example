@@ -70,7 +70,7 @@ abstract class BaseAmqpCommand extends Command
 
     final protected function getAmqpConnection(): AbstractConnection
     {
-        $config = config(sprintf('amqp.connections.%s.connection', config('amqp.default')));
+        $config = config(sprintf('amqp.connections.%s.connection.hosts.0', config('amqp.default')));
 
         return AmqpConnectionFactory::make(
             $config['host'],
