@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "26d33ee551b1ea445bc0a3e63f7c78b2",
+    "content-hash": "6e7a8eff515da9d3428430bd26b5ebb8",
     "packages": [
         {
             "name": "anik/amqp",
@@ -52,16 +52,16 @@
         },
         {
             "name": "anik/laravel-amqp",
-            "version": "dev-master",
+            "version": "v1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ssi-anik/laravel-amqp.git",
-                "reference": "65a1839292569ef58e49654a2b529d3192d49f96"
+                "reference": "7b316750eab5f14f26faa72e79ccb9ec9162343c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ssi-anik/laravel-amqp/zipball/65a1839292569ef58e49654a2b529d3192d49f96",
-                "reference": "65a1839292569ef58e49654a2b529d3192d49f96",
+                "url": "https://api.github.com/repos/ssi-anik/laravel-amqp/zipball/7b316750eab5f14f26faa72e79ccb9ec9162343c",
+                "reference": "7b316750eab5f14f26faa72e79ccb9ec9162343c",
                 "shasum": ""
             },
             "require": {
@@ -73,7 +73,6 @@
                 "orchestra/testbench": "^4.0|^5.0|^6.0",
                 "phpunit/phpunit": "^8.0|^9.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -103,9 +102,9 @@
             "description": "anik/amqp wrapper for Laravel-ish frameworks",
             "support": {
                 "issues": "https://github.com/ssi-anik/laravel-amqp/issues",
-                "source": "https://github.com/ssi-anik/laravel-amqp/tree/master"
+                "source": "https://github.com/ssi-anik/laravel-amqp/tree/v1.0"
             },
-            "time": "2021-11-12T04:09:17+00:00"
+            "time": "2021-11-16T02:33:30+00:00"
         },
         {
             "name": "brick/math",
@@ -6531,9 +6530,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "anik/laravel-amqp": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
